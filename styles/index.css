@@ -3,17 +3,16 @@
     margin: 0;
     box-sizing: border-box;
     font-family: "Noto Sans Thai", sans-serif;
+    scroll-behavior: smooth;
 }
 
-body {
-    scroll-behavior: smooth;
-    
-}
+
 
 /* Navbar section */
 nav.nav {
     width: 100%;
-    padding: 2rem;
+    height: 20vh;
+    padding: 0 2rem;
     display: flex;
     align-items: center;
     justify-content: space-between;
@@ -28,17 +27,26 @@ nav.nav {
 nav.nav .con2 {
     display: flex;
     align-items: center;
-   
+    height: 100%;
 }
 nav.nav .con2 .links {
     display: flex;
     align-items: center;
-    column-gap: 1rem;
+    
+    height: 100%;
+   
 
 }
 
 nav.nav .con2 .links .link {
     list-style-type: none;
+   height: 100%;
+   display: flex;
+   align-items: center;
+   justify-content: center;
+   flex-flow: column nowrap;
+   position: relative;
+   width: 100px;
     
 }
 nav.nav .con2 .links .link a {
@@ -54,7 +62,10 @@ nav.nav .con2 .links .link .line {
     border-radius: 2px;
     background-color: #f86d94;
     transition: 0.12s ease-in;
-    align-self: flex-start;
+    align-self: center;
+    position: absolute;
+    bottom: 0;
+    
     
     
 }
@@ -73,6 +84,7 @@ nav.nav .con2 .button {
     padding: 0.5rem 1rem;
     transition: 0.12s ease-in;
     cursor: pointer;
+    margin-left: 1rem;
 }
 
 nav.nav .con2 .button:hover {
@@ -133,12 +145,18 @@ section.main-section .content .sec1 .h2 {
     font-size: 70px;
     font-weight: 700;
     color: rgb(239, 193, 6);
+    cursor: pointer;
     
 }
 section.main-section .content .sec1 .line {
     width: 200px;
     height: 10px;
     background-color:#f86d94;
+    transition: 0.3s ease-in;
+    cursor: pointer;
+}
+section.main-section .content .sec1 .h2:hover ~ .line {
+    width: 80%;
 }
 section.main-section .content .sec1 .paragraph {
     font-size: 20px;
@@ -178,12 +196,22 @@ section.softpower .sec1 .h2 {
     color: rgb(189, 85, 108);
     font-size: 45px;
     font-weight: 700;
+    transition: 0.12s ease-in;
+
+}
+section.softpower .sec1 .h2:hover {
+    color:rgb(239, 193, 6);
+}
+
+section.softpower .sec1 .h2:hover ~ .line {
+    width: 100%;
 }
 section.softpower .sec1 .line {
     width: 200px;
     height: 10px;
     background-color: rgb(189, 85, 108);
     margin-top: 1rem;
+    transition: 0.3s ease-in;
 }
 section.softpower .sec2{
     width: min(50%, 500px);
@@ -264,14 +292,187 @@ section.index .sec2  .image {
     width: 650px;
 }
 
-/* Footer */
+/* Ai section */
+
+section.ai-section {
+    width: 100%;
+    padding: 2rem;
+    display: flex;
+    flex-flow: column nowrap;
+    align-items: center;
+    background-color: rgb(185, 199, 223)
+
+}
+
+section.ai-section .button {
+    display: flex;
+    align-items: center;
+    text-decoration: none;
+    color: white;
+    justify-content: center;
+    border-radius: 4px;
+    font-size: 28px;
+    font-weight: 600;
+    height: 60px;
+    width: 350px;
+    background-image: linear-gradient(204deg, #28B9FF 0%, #DB0F9C 100%);
+    column-gap: 10px;
+    cursor: pointer;
+    transition: 0.12s ease-in;
+}
+section.ai-section .button:hover {
+    
+    background-image: linear-gradient(#f86d94, #f86d94);
+}
+section.ai-section .button path {
+    fill: white;
+}
+
+
+/* Footer section */
 footer.footer {
     width: 100%;
+    padding: 2rem;
     display: flex;
     align-items: center;
     justify-content: center;
     background-image: url(https://www.softpowerthailand.com/wp-content/uploads/2020/04/topography.svg);
+}
+
+/* News section */
+section.news-secton {
+    width: 100%;
     
-    padding: 2rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+}
+
+section.news-section .grid-container {
+    width: 100%;
+    padding: 3rem 2rem;
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    grid-template-rows: 250px 250px 250px;
+    grid-template-areas: 
+    "main main main main"
+    "main main main main"
+    "new1 new2 new3 new4";
+    gap: 20px;
+
+
+}
+
+section.news-section .grid-container .main-news {
+    grid-area: main;
+    position: relative;
     
+    
+}
+section.news-section .grid-container .main-news .bg-overlay {
+    z-index: 1;
+    width: 100%;
+    height: 100%;
+    position: relative;
+}
+section.news-section .grid-container .main-news .bg-overlay img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    aspect-ratio: auto 728 / 485;
+    z-index: 1;
+}
+section.news-section .grid-container .main-news .bg-overlay .black-overlay {
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.0);
+    position: absolute;
+    
+    bottom: 0;
+    z-index: 2;
+    transition: 0.12s ease-in;
+    
+}
+section.news-section .grid-container .main-news:hover > .bg-overlay .black-overlay {
+    background-color: rgba(0, 0, 0, 0.3);
+}
+section.news-section .grid-container .main-news .content {
+    padding: 1rem;
+    width: 100%;
+    height: 100%;
+    
+    z-index: 3;
+    position: absolute;
+    top: 0;
+    display: flex;
+    flex-flow: column nowrap;
+    justify-content: space-between;
+
+}
+section.news-section .grid-container .main-news .content .category {
+    position: relative;
+    right: 0;
+    background-color: rgb(189, 85, 108);
+    border-radius: 3px;
+    font-size: 12px;
+    font-weight: 400;
+    color: white;
+    height: 26px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 0 0.5rem;
+    position: relative;
+    align-self: flex-end;
+
+}
+section.news-section .grid-container .main-news .content .content-info {
+    display: flex;
+    flex-flow: column nowrap;
+    align-items: flex-start;
+    
+}
+section.news-section .grid-container .main-news .content .content-info .date-row {
+    display: flex;
+    align-items: center;
+    column-gap: 10px;
+}
+section.news-section .grid-container .main-news .content .content-info .date-row svg {
+    width: 13px;
+    height: 13px;
+}
+section.news-section .grid-container .main-news .content .content-info .more-info-button {
+    background-color: rgb(255, 223, 0);
+    border-radius: 4px;
+    border: none;
+    text-decoration: none;
+    padding: 0.2rem 1rem;
+    color: black;
+    transition: 0.12s ease-in;
+    margin-top: 1.3rem;
+    cursor: pointer;
+}
+section.news-section .grid-container .main-news .content .content-info .more-info-button:hover {
+    background-color:#f86d94;
+    color: white;
+    
+}
+section.news-section .grid-container .main-news .text-overlay {
+    position: absolute;
+    bottom: 0;
+    z-index: 2;
+    width: 100%;
+    height: 40%;
+    background: linear-gradient(to top, rgba(0, 0, 0, 1), rgba(0, 0, 0, 0));
+}
+
+section.news-section .grid-container .new1 {
+    grid-area: new1;
+}
+section.news-section .grid-container .new2 {
+    grid-area: new2;
+}
+section.news-section .grid-container .new3 {
+    grid-area: new3;
 }
